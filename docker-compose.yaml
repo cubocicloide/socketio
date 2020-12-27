@@ -1,0 +1,24 @@
+version: '3.0'
+
+services:
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: ./Dockerfile
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./postgres/.env
+
+  django:
+    env_file:
+      - ./django/.env
+    build:
+      context: ./django
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./django/:/code/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
