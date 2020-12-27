@@ -21,6 +21,8 @@ from websocket.views import IndexView
 urlpatterns = [
     path('', IndexView.as_view()),
     path('admin/', admin.site.urls),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
     path('api/', include('api.urls')),
 ]
 

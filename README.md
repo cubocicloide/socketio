@@ -1,8 +1,12 @@
-## Django 3 + Socket.IO + Docker
-This project is an example of how to use python-socketio with asgi from within a Django 3 application.
-The example is inspired by [this](https://github.com/miguelgrinberg/python-socketio/tree/master/examples/server/asgi) repo.
-
-An analogous example in which wsgi is used instead of asgi is given [here](https://github.com/miguelgrinberg/python-socketio/tree/master/examples/server/wsgi/django_example).
+## Chat Application
+This project is a chat application based on the following tech stack<sup>[1](#footnote1)</sup>:
+- Docker
+- Django 3
+    - asgi<sup>[2](#footnote2)</sup>
+    - python-socketio
+    - djoser
+- React
+- Socket.IO
 
 ### Start the project
 - Install Docker
@@ -15,6 +19,13 @@ An analogous example in which wsgi is used instead of asgi is given [here](https
     POSTGRES_HOST=postgres
     POSTGRES_SSL_MODE=off
     SECRET_KEY=q$w!oi*7)x$=c#s(9+h@2prnbas$rsy-eh(#xm5fkd(vq3%^7o
+
+    EMAIL_HOST={your-email-host}
+    EMAIL_HOST_USER={your-email-host-user}
+    EMAIL_HOST_PASSWORD={your-email-host-password}
+
+    DOMAIN=localhost:3000
+    SITE_NAME=socketio
     ```
 - Add `.env` in `./postgres` with content
     ```
@@ -48,3 +59,7 @@ This command avoids the EOL (End Of Line) replacement. The latter is due to git 
 
 ### TODO
 Serve the client from a React application
+
+<a name="footnote1">1</a>: The example is inspired by [this](https://github.com/miguelgrinberg/python-socketio/tree/master/examples/server/asgi) repo.
+
+<a name="footnote2">2</a>: An analogous example in which wsgi is used instead of asgi is given [here](https://github.com/miguelgrinberg/python-socketio/tree/master/examples/server/wsgi/django_example).

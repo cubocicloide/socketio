@@ -1,0 +1,28 @@
+{% load i18n %}
+
+{% block subject %}
+{% blocktrans %}Attiva il tuo account su {{ site_name }}{% endblocktrans %}
+{% endblock subject %}
+
+{% block text_body %}
+{% blocktrans %}Stai ricevendo questa email per completare il processo di attivazione su {{ site_name }}.{% endblocktrans %}
+
+{% trans "Vai alla pagina seguente per attivare l'account:" %}
+{{ protocol }}://{{ domain }}/{{ url|safe }}
+
+{% trans "Grazie per aver utilizzato il nostro sito!" %}
+
+{% blocktrans %}La squadra di {{ site_name }}{% endblocktrans %}
+{% endblock text_body %}
+
+{% block html_body %}
+<p>{% blocktrans %}Stai ricevendo questa email per completare il processo di attivazione su {{ site_name }}.{% endblocktrans %}</p>
+
+<p>{% trans "Vai alla pagina seguente per attivare l'account:" %}</p>
+<p><a href="{{ protocol }}://{{ domain }}/{{ url|safe }}">{{ protocol }}://{{ domain }}/{{ url|safe }}</a></p>
+
+<p>{% trans "Grazie per aver utilizzato il nostro sito!" %}</p>
+
+<p>{% blocktrans %}La squadra di {{ site_name }}{% endblocktrans %}</p>
+
+{% endblock html_body %}
